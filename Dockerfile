@@ -1,5 +1,5 @@
-FROM eclipse-temurin:17
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM eclipse-temurin:17-jre
+EXPOSE 8080
+WORKDIR /opt/app
+COPY build/libs/*.jar app.jar
+ENTRYPOINT ["java","-jar", "app.jar"]
